@@ -40,12 +40,12 @@ class LikesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_like
-      @like = Like.find(params[:id])
-    end
+  def set_like
+    @like = Like.find(params[:id])
+  end
 
     # Only allow a trusted parameter "white list" through.
-    def like_params
-      params.require(:like).permit(:user_id_id, :post_id_id)
-    end
+  def like_params
+    params.require(:like).permit(:user_id, :post_id)
+  end
 end
