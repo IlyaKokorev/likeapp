@@ -5,6 +5,8 @@ class CreateLikes < ActiveRecord::Migration[5.2]
       t.references :post, foreign_key: true
 
       t.timestamps
+
     end
+      # индекс на уникальность user_id и post_id
   end
 end
