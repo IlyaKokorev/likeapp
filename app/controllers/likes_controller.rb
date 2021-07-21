@@ -15,8 +15,6 @@ class LikesController < ApplicationController
 
   # POST /likes
   def create
-    cd 
-
     if @like.save
       render json: @like, status: :created, location: @like
     else
@@ -30,6 +28,7 @@ class LikesController < ApplicationController
   end
 
   private
+
   def set_like
     @like = Like.find(params[:id])
   end

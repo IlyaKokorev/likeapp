@@ -4,8 +4,7 @@
     <list default="true" id="23dfd63f-997c-4aa9-a03b-0801d1ab981d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/likes_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/likes_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/migrate/20210711093742_create_likes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrate/20210711093742_create_likes.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/seeds.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/seeds.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/users_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/users_controller.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,7 +142,9 @@
       <workItem from="1625408745803" duration="1674000" />
       <workItem from="1625902185665" duration="3443000" />
       <workItem from="1626009308735" duration="1278000" />
-      <workItem from="1626517769467" duration="4785000" />
+      <workItem from="1626517769467" duration="4963000" />
+      <workItem from="1626789067569" duration="48000" />
+      <workItem from="1626853415145" duration="355000" />
     </task>
     <servers />
   </component>
