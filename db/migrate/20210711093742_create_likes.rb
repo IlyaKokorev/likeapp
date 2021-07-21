@@ -7,6 +7,5 @@ class CreateLikes < ActiveRecord::Migration[5.2]
       t.timestamps
 
     end
-      # индекс на уникальность user_id и post_id
   end
 end

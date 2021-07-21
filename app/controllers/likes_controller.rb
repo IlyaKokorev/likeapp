@@ -1,9 +1,12 @@
 class LikesController < ApplicationController
-  before_action :set_like, only: [:show, :destroy]
+  before_action :set_like, only: %i[show destroy]
+  before_action :set_counter, only: :index
 
   # GET /likes
   def index
     @likes = Like.all
+
+    @counter.nil? ? Counter.create!(count: 1) : @counter.update(count: @counter.count += 1)
 
     render json: @likes
   end
@@ -15,6 +18,8 @@ class LikesController < ApplicationController
 
   # POST /likes
   def create
+    @like = Like.new(like_params)
+
     if @like.save
       render json: @like, status: :created, location: @like
     else
@@ -22,15 +27,14 @@ class LikesController < ApplicationController
     end
   end
 
-  # DELETE /likes/1
-  def destroy
-    @like.destroy
-  end
-
   private
 
   def set_like
     @like = Like.find(params[:id])
+  end
+
+  def set_counter
+    @counter = Counter&.first
   end
 
   def like_params
