@@ -6,7 +6,7 @@ class LikesController < ApplicationController
   def index
     @likes = Like.all
 
-    @counter.nil? ? Counter.create!(count: 1) : @counter.update(count: @counter.count += 1)
+    CounterStatJob.perform_later(@counter)
 
     render json: @likes
   end
