@@ -1,9 +1,9 @@
 class AddLikeJob < ApplicationJob
-  queue_as :add_like
+  queue_as :default
 
   def perform(like_params)
     ActiveRecord::Base.transaction do
-      @like = Like.new(like_params)
+      @like = Like.create(like_params)
     end
   end
 end
