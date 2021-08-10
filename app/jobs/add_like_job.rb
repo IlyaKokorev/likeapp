@@ -3,7 +3,7 @@ class AddLikeJob < ApplicationJob
 
   def perform(like_params)
     ActiveRecord::Base.transaction do
-      @like = Like.create(like_params)
+      Like.create(like_params)
     end
   end
 end
