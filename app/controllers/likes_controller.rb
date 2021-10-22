@@ -4,14 +4,7 @@ class LikesController < ApplicationController
 
   # GET /likes
   def index
-    @likes = Like.all
-    @counter.with_lock { CounterStatJob.perform_later(@counter) }
-    render json: @likes.count
-  end
-
-  # GET /likes/1
-  def show
-    render json: @like
+    CounterStatJob.perform_later(@counter)
   end
 
   # POST /likes
@@ -26,8 +19,7 @@ class LikesController < ApplicationController
   end
 
   def set_counter
-    @counter = Counter&.first
-    Counter.create!(id: 1, count: 0) unless @counter
+    @counter = Counter.first
   end
 
   def like_param
