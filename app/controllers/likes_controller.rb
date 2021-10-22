@@ -5,10 +5,8 @@ class LikesController < ApplicationController
   # GET /likes
   def index
     @likes = Like.all
-
-    CounterStatJob.perform_later(@counter)
-
-    render json: @likes
+    @counter.with_lock { CounterStatJob.perform_later(@counter) }
+    render json: @likes.count
   end
 
   # GET /likes/1
@@ -18,7 +16,7 @@ class LikesController < ApplicationController
 
   # POST /likes
   def create
-    AddLikeJob.perform_later(like_params)
+    AddLikeJob.perform_later(like_param)
   end
 
   private
@@ -29,9 +27,10 @@ class LikesController < ApplicationController
 
   def set_counter
     @counter = Counter&.first
+    Counter.create!(id: 1, count: 0) unless @counter
   end
 
-  def like_params
+  def like_param
     params.require(:like).permit(:user_id, :post_id)
   end
 end

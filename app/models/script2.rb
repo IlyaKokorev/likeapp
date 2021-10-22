@@ -2,8 +2,8 @@ require 'httparty'
 
 threads = []
 
-threads << Thread.new do
-  3000..4000.times do |id|
+Array.new(500) do |id|
+  threads << Thread.new do
     body =
       {
         "like": {
@@ -12,25 +12,10 @@ threads << Thread.new do
         }
       }
 
-    HTTParty.post('http://localhost:3000/likes', body: body.to_json,
-                                                 headers: { 'Content-Type' => 'application/json' }).parsed_response
-  end
-end
-
-threads << Thread.new do
-  3000..5000.times do |id|
-    body =
-      {
-        "like": {
-          "user_id": id,
-          "post_id": 1
-        }
-      }
-
-    HTTParty.post('http://localhost:3000/likes', body: body.to_json,
-                                                 headers: { 'Content-Type' => 'application/json' }).parsed_response
+    HTTParty.post('http://localhost:3000/likes',
+                  body: body.to_json,
+                  headers: { 'Content-Type' => 'application/json' }).parsed_response
   end
 end
 
 threads.each(&:join)
-sleep 320
