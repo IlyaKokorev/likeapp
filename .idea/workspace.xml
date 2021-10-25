@@ -8,6 +8,9 @@
       <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/likes_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/likes_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/jobs/counter_stat_job.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/jobs/counter_stat_job.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/counter.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/counter.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dump.rdb" beforeDir="false" afterPath="$PROJECT_DIR$/dump.rdb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,6 +196,7 @@
       <workItem from="1628427174376" duration="666000" />
       <workItem from="1628578939929" duration="6349000" />
       <workItem from="1628613678758" duration="5801000" />
+      <workItem from="1634985236255" duration="13806000" />
     </task>
     <servers />
   </component>

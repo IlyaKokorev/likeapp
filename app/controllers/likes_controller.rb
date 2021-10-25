@@ -1,10 +1,31 @@
 class LikesController < ApplicationController
-  before_action :set_like, only: %i[show destroy]
-  before_action :set_counter, only: :index
-
   # GET /likes
   def index
-    CounterStatJob.perform_later(@counter)
+    Counter.transaction(isolation: :serializable) do
+      counter = Counter.first!
+      counter.slots_taken.increment
+      write_to_file(counter.slots_taken.value)
+    end
+    # CounterStatJob.perform_later(counter)
+    # Counter.connection.execute("SET SESSION TRANSACTION ISOLATION LEVEL SERIALIZABLE")
+    # counter = Counter.first
+    # CounterStatJob.perform_later(counter)
+    #
+    # begin
+    #   Counter.transaction(isolation: :serializable) do
+    #     counter = Counter.first
+    #     CounterStatJob.perform_later(counter)
+    #   end
+    # rescue ActiveRecord::StatementInvalid => e
+    #   sleep rand / 10
+    #   retry
+    # end
+  end
+
+  def write_to_file(value)
+    file = File.new("./file.txt", "a:UTF-8")
+    file.print("#{value}\n")
+    file.close
   end
 
   # POST /likes
@@ -13,14 +34,6 @@ class LikesController < ApplicationController
   end
 
   private
-
-  def set_like
-    @like = Like.find(params[:id])
-  end
-
-  def set_counter
-    @counter = Counter.first
-  end
 
   def like_param
     params.require(:like).permit(:user_id, :post_id)

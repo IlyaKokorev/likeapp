@@ -12,6 +12,7 @@ gem 'httparty'
 gem 'pry'
 gem 'concurrent-ruby-edge', require: 'concurrent-edge'
 gem 'thread'
+gem 'redis-objects'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
